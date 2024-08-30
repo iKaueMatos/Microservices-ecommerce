@@ -1,19 +1,16 @@
 
--- table roles
 create table roles (
     id bigint not null auto_increment,
     name varchar(60),
     primary key (id)
 )
 
--- table use_role
 create table use_role (
        user_id bigint not null,
        role_id bigint not null,
        primary key (user_id, role_id)
 )
 
--- table users
 create table users (
        id bigint not null auto_increment,
        avatar longtext,
@@ -24,7 +21,6 @@ create table users (
        primary key (id)
 )
 
--- table hibernate_sequence
 create table hibernate_sequence (
        next_val bigint
 )

@@ -8,7 +8,6 @@ CREATE TABLE categories (
 	updated_at TIMESTAMP
 );
 
--- Insert dữ liệu vào bảng categories
 INSERT INTO categories (parent_category_id, category_title, image_url, created_at, updated_at)
 VALUES
     (NULL, 'Electronics', 'http://.com/electronics.jpg', CURRENT_TIMESTAMP, NULL),
@@ -31,7 +30,6 @@ CREATE TABLE products (
 );
 
 
--- Insert dữ liệu vào bảng products
 INSERT INTO products (category_id, product_title, image_url, sku, price_unit, quantity, created_at, updated_at)
 VALUES
     (3, 'Laptop Model A', 'http://.com/laptopA.jpg', 'SKU001', 999.99, 10, CURRENT_TIMESTAMP, NULL),

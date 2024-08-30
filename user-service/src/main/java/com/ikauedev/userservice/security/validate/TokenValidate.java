@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TokenValidate {
-
     @Value("${jwt.secret}")
     private String SECRET_KEY;
 

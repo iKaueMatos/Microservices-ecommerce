@@ -1,12 +1,9 @@
--- Tạo bảng hibernate_sequence
 CREATE TABLE hibernate_sequence (
     next_val BIGINT
 ) ENGINE=MyISAM;
 
--- Thêm dữ liệu vào bảng hibernate_sequence
 INSERT INTO hibernate_sequence VALUES (1);
 
--- Tạo bảng roles
 CREATE TABLE roles (
     id BIGINT NOT NULL,
     role_name VARCHAR(60),
@@ -18,21 +15,18 @@ INSERT INTO roles(id, role_name) VALUES
 (2, 'PM'),
 (3, 'ADMIN');
 
--- Tạo chỉ mục unique cho cột role_name trong bảng roles
 ALTER TABLE roles
     DROP INDEX UK_nb4h0p6txrmfc0xbrd1kglp9t;
 
 ALTER TABLE roles
     ADD CONSTRAINT UK_nb4h0p6txrmfc0xbrd1kglp9t UNIQUE (role_name);
 
--- Tạo bảng user_role
 CREATE TABLE user_role (
     user_id BIGINT NOT NULL,
     role_id BIGINT NOT NULL,
     PRIMARY KEY (user_id, role_id)
 ) ENGINE=MyISAM;
 
--- Thêm các ràng buộc khóa ngoại cho bảng user_role
 ALTER TABLE user_role
     ADD CONSTRAINT FKt7e7djp752sqn6w22i6ocqy6q
     FOREIGN KEY (role_id)
@@ -43,7 +37,6 @@ ALTER TABLE user_role
     FOREIGN KEY (user_id)
     REFERENCES users (user_id);
 
--- Tạo bảng users
 CREATE TABLE users (
     user_id BIGINT NOT NULL AUTO_INCREMENT,
     image_url LONGTEXT,
@@ -56,7 +49,6 @@ CREATE TABLE users (
     PRIMARY KEY (user_id)
 ) ENGINE=MyISAM;
 
--- Tạo các chỉ mục unique cho cột user_name và email trong bảng users
 ALTER TABLE users
     DROP INDEX UKr43af9ap4edm43mmtq01oddj6;
 
